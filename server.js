@@ -12,8 +12,8 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 server.use(logger);
-server.use("/", projectRouter);
-server.use("/:id/actions", actionRouter);
+server.use("/projects", projectRouter);
+server.use("/actions", actionRouter);
 
 server.get("/", (req, res) => {
     db.get()
