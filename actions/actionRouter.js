@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
     }
     else {
 
-    db.insert(req.body)
+    actionDb.insert(req.body)
       .then(action => {
         res.status(201).json(action);
       })
@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
   }});
 
   router.put("/:id", (req, res) => {
-    db.update(req.params.id, req.body)
+    actionDb.update(req.params.id, req.body)
       .then(action => {
         if (action) {
           res.status(200).json(action);
@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
   });
   
   router.delete("/:id", (req, res) => {
-    db.remove(req.params.id)
+    actionDb.remove(req.params.id)
       .then(count => {
         if (count > 0) {
           res.status(200).json({ message: "Deleted" });
